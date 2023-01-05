@@ -46,53 +46,72 @@ body {
     justify-content: center;
     align-items: center;
 }
-.popup{
-    background:#3CB371; 
+
+.popup {
+    background: #3CB371;
     padding: 20px;
-    text-align:center ; 
+    text-align: center;
     border-radius: 5px;
-    box-shadow:0 15px 10px 3px rgba(0, 0, 0, 0.5) ;
+    box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.5);
 }
-.popup #play-again{
-    background:#FFE4E1;
+
+.popup #play-again {
+    background: #FFE4E1;
     padding: 5px;
     border-radius: 3px;
-    color:#3a444e;
-    border-color:#3a444e;
+    color: #3a444e;
+    border-color: #3a444e;
 }
-.popup #play-again:hover{
+
+.popup #play-again:hover {
     background: #3a444e;
-    color:#fff;
-    border-color:#3a444e;
+    color: #fff;
+    border-color: #3a444e;
     border-radius: 3px;
 }
-.welcome{
-    position: absolute;
+
+.welcome-container {
+    /* Makes the content of this div at the center of welcome-container */
+    display: flex;
+    justify-content: center;
+    /* Make this div at the center */
+    position: fixed;
     top: 0;
-    background:#F76015; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.welcome {
+    background: #F76015;
     padding: 20px;
-   text-align:center ; 
-   border-radius: 5px;
-   box-shadow:0 15px 10px 3px rgba(0, 0, 0, 0.5) ;
-   display:flex;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.5);
+    display: flex;
     flex-direction: column;
 }
-.welcome #startGame{
+
+.welcome #startGame {
     padding: 10px;
     border-radius: 5px;
-    color:#3a444e;
-    border-color:#3a444e;
+    color: #3a444e;
+    border-color: #3a444e;
 }
-.welcome #startGame:hover{
+
+.welcome #startGame:hover {
     background: #3a444e;
-    color:#fff;
-    border-color:#F76015;
+    color: #fff;
+    border-color: #F76015;
     border-radius: 5px;
 }
+
 #word {
     display: flex;
     position: absolute;
-    bottom:10px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -107,7 +126,8 @@ body {
     justify-content: center;
     align-items: center;
 }
-#message{
+
+#message {
     background: rgba(0, 0, 0, 0.3);
     font-size: 1.5rem;
     border-radius: 5px;
@@ -116,6 +136,36 @@ body {
     bottom: -80px;
     transition: transform 0.4s ease-in-out;
 }
-#message.show{
+
+#message.show {
     transform: translateY(-80px);
+}
+
+#countdown {
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F76015;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.header {
+    width: 450px;
+}
+
+.header hr {
+    background: #F76015;
+    width: 100%;
+    height: 7px;
+    border: none;
+}
+
+.header div {
+    display: flex;
+    justify-content: space-between;
 }

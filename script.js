@@ -5,14 +5,16 @@ const items = document.querySelectorAll(".item");
 const wrongLettersElement = document.getElementById("wrong-letters");
 const warning = document.getElementById("message");
 const PlayAgainBtn = document.getElementById("play-again");
-let selectedWord = getRandomWord();
 const correctLetters = ["a", "j", "g", "t", "i"];
 const wrongLetters = [];
 const startGameButton = document.getElementById("startGameButton");
 const welcomeContainer = document.getElementById("welcome-container");
 // Ayarlanacak süre (saniye cinsinden)
-const Duration = 5;
+
+const Duration = 500;
 let countdownDuration = Duration;
+let selectedWord = getRandomWord();
+
 
 function getRandomWord() {
     const words = ["javascript", "galatasaray", "paris", "nadal", "playstation", "software"];
@@ -30,14 +32,11 @@ function displayWord() {
     `).join("")}
      
     `;
-    // let wrongAnsver = items.length;
-    // let right=
     const w = wordElement.innerText.replace(/\n/g, "");
 
-    // kataninca popup göster. 
+    // kazaninca popup göster. 
     if (w === selectedWord) {
-        popup.style.display = 'flex';
-        message.innerText = "Congratulations. You Won:)"
+        showPopup("Congratulations. You Won :)")
     }
 }
 function updateWrongLetters() {
@@ -58,16 +57,30 @@ function updateWrongLetters() {
 
     // Show lost warning
     if (wrongLetters.length === items.length) {
-        showLostWarningPopup();
+        showPopup("You Lost :(");
     }
 };
 
-function showLostWarningPopup() {
+// Ayni kodu farklı farklı yerlerde yazmamalısın. 
+// Popup icin bu çok olmus. Bundan kaçınmak icin showPopup fonksiyonuna mesaj değişken olarak attım. 
+// Sende sınıf olarak yapalım demistin. Ayni mantık. Fonksiyonla yapmış olduk. İncele kullanımları. 
+// Burada daha güzel kullanim su olurdu: 
+// popup id sini yollayip popup degiskenini burada olusturabilirsin. Böylece sayfada farkli popuplari göstermek icin de ayni fonksiyonu kullanirsin.
+// Bu fonksiyon su an sadece 2. satirda sectigin popup-container id li popup icin calisiyor. 
+// Bu güzel bir alistirma olur. Bence yap. 
+// HidePopup da ona göre güncellenebilir. 
+function showPopup(popupMessage) {
     popup.style.display = 'flex';
-    message.innerText = "You Lost :("
+    message.innerText = popupMessage
 }
 
+function hidePopup() {
+    popup.style.display = "none";
+}
 
+// cok güzel fonksiyon. Basit bir tek görevi var. 
+// bu tarz hem acip hem kapama islemi yapan fonksiyonlarda toggle ismi kullanilir. 
+// displayWarning = toggleWarning
 function displayWarning() {
     warning.classList.add("show");
     setTimeout(() => {
@@ -84,7 +97,9 @@ function addEventListeners() {
         countdownDuration = Duration;
         displayWord();
         updateWrongLetters();
-        popup.style.display = "none";
+        // olasi bir code duplication önlemek icin bu fonksiyon olsa daha iyi. Baska bir yerde popup gizlemek istesen yine ayni satiri yazacaksin. 
+        // popup.style.display = "none";
+        hidePopup()
     })
     window.addEventListener("keydown", function (e) {
         if ((e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode = 222)) {
@@ -127,7 +142,7 @@ function updateCountdown() {
 
     // Sayaç 0'dan küçükse, sayaçı durdurun ve çıkış yapın
     if (countdownDuration <= 0) {
-        showLostWarningPopup();
+        showPopup("You Lost :(");
         clearInterval(intervalId);
         return;
     }
@@ -136,7 +151,6 @@ function updateCountdown() {
     countdownDuration -= 1;
     countdownEl.textContent = countdownDuration;
 }
-
 
 
 

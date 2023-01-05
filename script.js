@@ -6,10 +6,10 @@ const wrongLettersElement = document.getElementById("wrong-letters");
 const warning = document.getElementById("message");
 const PlayAgainBtn = document.getElementById("play-again");
 let selectedWord = getRandomWord();
-const correctLetters = ["a"];
+const correctLetters = ["a","j","g","t","i"];
 const wrongLetters = [];
 function getRandomWord() {
-    const words = ["javascript", "galatasaray", "paris", "nadal", "playsatation", "software"];
+    const words = ["javascript", "galatasaray", "paris", "nadal", "playstation", "software"];
     return words[Math.floor(Math.random() * words.length)];
 };
 function displayWord() {
@@ -22,6 +22,8 @@ function displayWord() {
     `).join("")}
      
     `;
+    let wrongAnsver=items.length;
+    let right=
     const w = wordElement.innerText.replace(/\n/g, "");
     if (w === selectedWord) {
         popup.style.display = 'flex';
@@ -33,7 +35,7 @@ function upDateWrongLetters() {
     ${wrongLetters.length > 0 ? `<h3>Wrong Letters</h3>` : ""}
     ${wrongLetters.map(letter => `<span>${letter}</span>`)}    
     `;
-    items.forEach(item, index => {
+    items.forEach((item, index) => {
         const errorCount = wrongLetters.length;
         if (index < errorCount) {
             item.style.display = "block";
@@ -49,7 +51,7 @@ function upDateWrongLetters() {
     }
 };
 function displayWarning() {
-    warning.classList("show");
+    warning.classList.add("show");
     setTimeout(() => {
         warning.classList.remove("show");
     }, 2000);
@@ -83,3 +85,46 @@ window.addEventListener("keydown", function (e) {
     }
 })
 displayWord();
+// var hak, can;
+// var tahmin, sayac = 0
+// var sayi = Math.floor((Math.random() * 10) + 1);
+// can = Number(prompt("kaç kerede bileceksiniz"));
+// hak = can;
+// console.log(sayi);
+
+// while (hak > 0) {
+//     hak--;
+//     sayac++;
+//     tahmin = Number(prompt("Bir Sayı Giriniz"));
+//     if (sayi == tahmin) {
+//         console.log(`Tebrikler ${sayac} defada bildiniz.`)
+//         console.log(`puan: ${100 - (100 / can) * (sayac - 1)}`);
+//         break;
+//     } else if (sayi > tahmin) {
+
+//         console.log("Tahmininizi arttırın");
+//     } else {
+//         console.log("tahmininizi azaltın");
+//     }
+//     if (hak == 0) {
+//         console.log('Hakkınız bitti. sayı :' + sayi);
+//     }
+// }
+
+// var welcome=document.getElementById("welcome");
+// // message.classList="alert alert-success show fade";
+// // message.innerHTML="success message"
+// var bsAlert= new bootstrap.Alert(welcome)
+// welcome.addEventListener("close.bs.alert",function(){
+//   console.log("alert kapanıyor...");
+// });
+// welcome.addEventListener("closed.bs.alert",function(){
+//   console.log("alert kapandı");
+// });
+//   setTimeout(function(){
+//       bsAlert.close();
+//   },2000)
+
+
+
+

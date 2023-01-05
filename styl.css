@@ -35,7 +35,7 @@ body {
     right: 30px;
 }
 
-.popup-container {
+#popup-container {
     background: rgba(0, 0, 0, 0.3);
     position: fixed;
     top: 0;
@@ -47,11 +47,47 @@ body {
     align-items: center;
 }
 .popup{
-    background: green; 
-     padding: 20px;
+    background:#3CB371; 
+    padding: 20px;
     text-align:center ; 
     border-radius: 5px;
     box-shadow:0 15px 10px 3px rgba(0, 0, 0, 0.5) ;
+}
+.popup #play-again{
+    background:#FFE4E1;
+    padding: 5px;
+    border-radius: 3px;
+    color:#3a444e;
+    border-color:#3a444e;
+}
+.popup #play-again:hover{
+    background: #3a444e;
+    color:#fff;
+    border-color:#3a444e;
+    border-radius: 3px;
+}
+.welcome{
+    position: absolute;
+    top: 0;
+    background:#F76015; 
+    padding: 20px;
+   text-align:center ; 
+   border-radius: 5px;
+   box-shadow:0 15px 10px 3px rgba(0, 0, 0, 0.5) ;
+   display:flex;
+    flex-direction: column;
+}
+.welcome #startGame{
+    padding: 10px;
+    border-radius: 5px;
+    color:#3a444e;
+    border-color:#3a444e;
+}
+.welcome #startGame:hover{
+    background: #3a444e;
+    color:#fff;
+    border-color:#F76015;
+    border-radius: 5px;
 }
 #word {
     display: flex;

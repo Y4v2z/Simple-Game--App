@@ -71,10 +71,8 @@ body {
 }
 
 .welcome-container {
-    /* Makes the content of this div at the center of welcome-container */
     display: flex;
     justify-content: center;
-    /* Make this div at the center */
     position: fixed;
     top: 0;
     right: 0;

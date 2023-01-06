@@ -66,8 +66,8 @@ function addEventListeners() {
         correctLetters.splice("");
         wrongLetters.splice("");
         selectedWord = getRandomWord();
-        updateWrongLetters();
         displayWord();
+        updateWrongLetters();
         countdownDuration = Duration;
         hidePopup()
     })

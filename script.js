@@ -5,7 +5,7 @@ const items = document.querySelectorAll(".item");
 const wrongLettersElement = document.getElementById("wrong-letters");
 const warning = document.getElementById("message");
 const PlayAgainBtn = document.getElementById("play-again");
-const correctLetters = ["a", "j", "g", "t", "i", "c", "u"];
+let correctLetters = ["a", "j", "g", "t", "i", "c", "u"];
 const wrongLetters = [];
 const startGameButton = document.getElementById("startGameButton");
 const welcomeContainer = document.getElementById("welcome-container");
@@ -63,7 +63,7 @@ function displayWarning() {
 }
 function addEventListeners() {
     PlayAgainBtn.addEventListener("click", function () {
-        correctLetters.splice("");
+        correctLetters = ["a", "j", "g", "t", "i", "c", "u"];
         wrongLetters.splice("");
         selectedWord = getRandomWord();
         displayWord();
